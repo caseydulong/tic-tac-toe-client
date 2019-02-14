@@ -1,1 +1,67 @@
 @import '~bootstrap/scss/bootstrap';
+
+$purple: #6b5b95;
+$yellow: #feb236;
+$red: #d64161;
+$orange: #ff7b25;
+$dark: #343a40;
+
+body {
+  background-color: $purple;
+}
+
+header {
+  background-color: $orange;
+}
+
+.board-square {
+  align-items: center;
+  background-color: $purple;
+  display: flex;
+  height: 100px;
+  font-size: 50px;
+  justify-content: center;
+}
+
+#grid-0 {
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+}
+#grid-1 {
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
+}
+#grid-2 {
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
+}
+#grid-3 {
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+}
+#grid-4 {
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
+}
+#grid-5 {
+  border-top: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
+}
+#grid-6 {
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
+}
+#grid-7 {
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-left: .5rem solid $dark;
+}
+#grid-8 {
+  border-top: .5rem solid $dark;
+  border-left: .5rem solid $dark;
+}

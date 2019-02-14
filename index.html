@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <header>
-        <h1>Tic-Tac-Toe</h1>
-      </header>
-      <main>
-        <div name="board-container" class="container"></div>
-      </main>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8"
+    defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8"
+    defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Tic-Tac-Toe</h1>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row game-board">
+        <div id="grid-0" class="col-4 board-square">1</div>
+        <div id="grid-1" class="col-4 board-square">2</div>
+        <div id="grid-2" class="col-4 board-square">3</div>
+        <div id="grid-3" class="col-4 board-square">4</div>
+        <div id="grid-4" class="col-4 board-square">5</div>
+        <div id="grid-5" class="col-4 board-square">6</div>
+        <div id="grid-6" class="col-4 board-square">7</div>
+        <div id="grid-7" class="col-4 board-square">8</div>
+        <div id="grid-8" class="col-4 board-square">9</div>
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>
