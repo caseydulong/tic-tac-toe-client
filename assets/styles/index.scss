@@ -4,10 +4,14 @@ $purple: #6b5b95;
 $yellow: #feb236;
 $red: #d64161;
 $orange: #ff7b25;
-$dark: #343a40;
+$dark: #212529;
 
 body {
   background-color: $purple;
+}
+
+h1 {
+  color: $dark;
 }
 
 header {
@@ -21,6 +25,12 @@ header {
   height: 100px;
   font-size: 50px;
   justify-content: center;
+  user-select: none;
+}
+
+#user-feedback {
+  color: $dark;
+  text-align: center;
 }
 
 #grid-0 {
