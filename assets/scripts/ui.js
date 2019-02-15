@@ -2,7 +2,7 @@
 
 const resizeBoardSquare = () => {
   const width = $('.board-square').width()
-  $('.board-square').css('height', width)
+  $('.board-square').css('height', width + 'px')
 }
 
 module.exports = {
