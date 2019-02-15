@@ -19,7 +19,7 @@ const legalMoveCheck = event => {
 
 const playMove = boardSquare => {
   $(`#${boardSquare.id}`).text(playerTurn)
-  boardState[boardSquare.getAttribute('data-type')] = playerTurn
+  boardState[boardSquare.getAttribute('data-id')] = playerTurn
   checkGameOver()
 }
 
