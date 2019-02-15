@@ -1,43 +1,46 @@
 'use strict'
 
+const ui = require('./ui.js')
 const initialBoardState = ['', '', '', '', '', '', '', '', '']
 const boardState = initialBoardState
+let gameInProgress = true
 let playerTurn = 'X'
 
 const legalMoveCheck = event => {
   const boardSquare = event.target
-  if ($(`#${boardSquare.id}`).text()) {
-    $('#user-feedback').text('That is not a legal move.')
-    setTimeout(() => $('#user-feedback').text(''), 3000)
+  if (gameInProgress === false) {
+    ui.userFeedback('The game is over.')
+  } else if ($(`#${boardSquare.id}`).text()) {
+    ui.userFeedback('That is not a legal move.')
   } else {
     playMove(boardSquare)
   }
 }
 
 const playMove = boardSquare => {
-  if (playerTurn === 'X') {
-    $(`#${boardSquare.id}`).text(playerTurn)
-    updateBoardState(boardSquare, playerTurn)
-    playerTurn = 'O'
-  } else if (playerTurn === 'O') {
-    $(`#${boardSquare.id}`).text(playerTurn)
-    updateBoardState(boardSquare, playerTurn)
-    playerTurn = 'X'
-  }
-}
-
-const updateBoardState = (boardSquare, player) => {
-  boardState[boardSquare.getAttribute('data-type')] = player
-  console.log(boardState)
+  $(`#${boardSquare.id}`).text(playerTurn)
+  boardState[boardSquare.getAttribute('data-type')] = playerTurn
   checkGameOver()
 }
 
 const checkGameOver = () => {
   if (checkWinCondition()) {
-    console.log('You win!')
+    gameInProgress = false
+    ui.userFeedback(`Game over: ${playerTurn} wins!`)
+    console.log(`Game over: ${playerTurn} wins!`)
   } else if (boardState.every(index => index !== '')) {
     // If every board position is full, and no win condidtino is met, draw
-    console.log('DRAW')
+    gameInProgress = false
+    ui.userFeedback('Game over: draw.')
+  } else {
+    // Toggle turn
+    if (playerTurn === 'X') {
+      ui.userFeedback('O player\'s turn.')
+      playerTurn = 'O'
+    } else if (playerTurn === 'O') {
+      ui.userFeedback('X player\'s turn.')
+      playerTurn = 'X'
+    }
   }
 }
 
