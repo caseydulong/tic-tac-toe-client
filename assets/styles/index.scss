@@ -1,5 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-
 $purple: #6b5b95;
 $yellow: #feb236;
 $red: #d64161;
@@ -30,48 +29,59 @@ header {
 
 #user-feedback {
   color: $dark;
+  display: block;
+  height: 1rem;
   text-align: center;
+  user-select: none;
 }
 
 #grid-0 {
-  border-right: .5rem solid $dark;
-  border-bottom: .5rem solid $dark;
+  border-right: 0.5rem solid $dark;
+  border-bottom: 0.5rem solid $dark;
 }
+
 #grid-1 {
-  border-right: .5rem solid $dark;
-  border-bottom: .5rem solid $dark;
-  border-left: .5rem solid $dark;
+  border-right: 0.5rem solid $dark;
+  border-bottom: 0.5rem solid $dark;
+  border-left: 0.5rem solid $dark;
 }
+
 #grid-2 {
-  border-bottom: .5rem solid $dark;
-  border-left: .5rem solid $dark;
+  border-bottom: 0.5rem solid $dark;
+  border-left: 0.5rem solid $dark;
 }
+
 #grid-3 {
-  border-top: .5rem solid $dark;
-  border-right: .5rem solid $dark;
-  border-bottom: .5rem solid $dark;
+  border-top: 0.5rem solid $dark;
+  border-right: 0.5rem solid $dark;
+  border-bottom: 0.5rem solid $dark;
 }
+
 #grid-4 {
-  border-top: .5rem solid $dark;
-  border-right: .5rem solid $dark;
-  border-bottom: .5rem solid $dark;
-  border-left: .5rem solid $dark;
+  border-top: 0.5rem solid $dark;
+  border-right: 0.5rem solid $dark;
+  border-bottom: 0.5rem solid $dark;
+  border-left: 0.5rem solid $dark;
 }
+
 #grid-5 {
-  border-top: .5rem solid $dark;
-  border-bottom: .5rem solid $dark;
-  border-left: .5rem solid $dark;
+  border-top: 0.5rem solid $dark;
+  border-bottom: 0.5rem solid $dark;
+  border-left: 0.5rem solid $dark;
 }
+
 #grid-6 {
-  border-top: .5rem solid $dark;
-  border-right: .5rem solid $dark;
+  border-top: 0.5rem solid $dark;
+  border-right: 0.5rem solid $dark;
 }
+
 #grid-7 {
-  border-top: .5rem solid $dark;
-  border-right: .5rem solid $dark;
-  border-left: .5rem solid $dark;
+  border-top: 0.5rem solid $dark;
+  border-right: 0.5rem solid $dark;
+  border-left: 0.5rem solid $dark;
 }
+
 #grid-8 {
-  border-top: .5rem solid $dark;
-  border-left: .5rem solid $dark;
+  border-top: 0.5rem solid $dark;
+  border-left: 0.5rem solid $dark;
 }

@@ -1,24 +1,36 @@
 'use strict'
 
-let playerTurn = 1
-
-const playMove = boardSquare => {
-  if (playerTurn === 1) {
-    $(`#${boardSquare}`).text('X')
-    playerTurn = 2
-  } else if (playerTurn === 2) {
-    $(`#${boardSquare}`).text('O')
-    playerTurn = 1
-  }
-}
+const initialBoardState = ['', '', '', '', '', '', '', '', '']
+const boardState = initialBoardState
+let playerTurn = 'X'
 
 const legalMoveCheck = event => {
-  const boardSquare = event.target.id
-  if ($(`#${boardSquare}`).text()) {
+  const boardSquare = event.target
+  console.log(event.target.getAttribute('data-type'))
+  if ($(`#${boardSquare.id}`).text()) {
     $('#user-feedback').text('That is not a legal move.')
+    setTimeout(() => $('#user-feedback').text(''), 3000)
   } else {
     playMove(boardSquare)
   }
+}
+
+const playMove = boardSquare => {
+  if (playerTurn === 'X') {
+    $(`#${boardSquare.id}`).text(playerTurn)
+    updateBoardState(boardSquare, playerTurn)
+    playerTurn = 'O'
+  } else if (playerTurn === 'O') {
+    $(`#${boardSquare.id}`).text(playerTurn)
+    updateBoardState(boardSquare, playerTurn)
+    playerTurn = 'X'
+  }
+}
+
+const updateBoardState = (boardSquare, player) => {
+  boardState[boardSquare.getAttribute('data-type')] = player
+  console.log(boardState)
+  // checkWinCondition()
 }
 
 module.exports = {
