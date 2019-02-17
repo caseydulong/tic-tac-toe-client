@@ -1,6 +1,7 @@
 'use strict'
 
-const store = {
-}
+// const notStore = {
+//   'Some key': 'Some value'
+// }
 
-module.exports = store
+module.exports = {}

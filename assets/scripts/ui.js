@@ -6,8 +6,8 @@ const resizeBoardSquare = () => {
 }
 
 const userFeedback = (text) => {
-  $('#user-feedback').text(text)
-  // setTimeout(() => $('#user-feedback').text(''), 3000)
+  $('#game-feedback').text(text)
+  // setTimeout(() => $('#game-feedback').text(''), 3000)
 }
 
 module.exports = {
