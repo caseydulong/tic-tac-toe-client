@@ -18,9 +18,15 @@ const legalMoveCheck = event => {
 }
 
 const playMove = boardSquare => {
-  $(`#${boardSquare.id}`).text(playerTurn)
   boardState[boardSquare.getAttribute('data-id')] = playerTurn
+  updateBoard()
   checkGameOver()
+}
+
+const updateBoard = () => {
+  for (const i in boardState) {
+    $(`#grid-${i}`).text(boardState[i])
+  }
 }
 
 const checkGameOver = () => {
