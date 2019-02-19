@@ -1,57 +1,58 @@
 'use strict'
 
-const ui = require('./ui.js')
-const initialBoardState = ['', '', '', '', '', '', '', '', '']
-const boardState = initialBoardState
-let gameInProgress = true
-let playerTurn = 'X'
+const gameUi = require('./ui.js')
+const store = require('../store.js')
+const apiEvents = require('../api/events.js')
+
+store.boardState = ['', '', '', '', '', '', '', '', '']
+
+const updateBoard = () => {
+  for (const i in store.boardState) {
+    $(`#grid-${i}`).text(store.boardState[i].toUpperCase())
+  }
+}
 
 const legalMoveCheck = event => {
   const boardSquare = event.target
-  if (gameInProgress === false) {
-    ui.userFeedback('The game is over.')
+  if (store.gameOver === true) {
+    gameUi.userFeedback('The game is over.')
   } else if ($(`#${boardSquare.id}`).text()) {
-    ui.userFeedback('That is not a legal move.')
+    gameUi.userFeedback('That is not a legal move.')
   } else {
-    playMove(boardSquare)
+    // Update local boardState
+    store.boardState[boardSquare.getAttribute('data-id')] = store.playerTurn
+    // Update board UI
+    updateBoard()
+    // Check if game is over
+    checkGameOver(boardSquare)
   }
 }
 
-const playMove = boardSquare => {
-  boardState[boardSquare.getAttribute('data-id')] = playerTurn
-  updateBoard()
-  checkGameOver()
-}
-
-const updateBoard = () => {
-  for (const i in boardState) {
-    $(`#grid-${i}`).text(boardState[i])
-  }
-}
-
-const checkGameOver = () => {
+const checkGameOver = boardSquare => {
   if (checkWinCondition()) {
-    gameInProgress = false
-    ui.userFeedback(`Game over: ${playerTurn} wins!`)
-    console.log(`Game over: ${playerTurn} wins!`)
-  } else if (boardState.every(index => index !== '')) {
+    store.gameOver = true
+    gameUi.userFeedback(`Game over: ${store.playerTurn} wins!`)
+    apiEvents.onUpdate(boardSquare.getAttribute('data-id'), store.playerTurn.toLowerCase(), store.gameOver)
+  } else if (store.boardState.every(index => index !== '')) {
     // If every board position is full, and no win condidtino is met, draw
-    gameInProgress = false
-    ui.userFeedback('Game over: draw.')
+    store.gameOver = true
+    gameUi.userFeedback('Game over: draw.')
+    apiEvents.onUpdate(boardSquare.getAttribute('data-id'), store.playerTurn.toLowerCase(), store.gameOver)
   } else {
+    apiEvents.onUpdate(boardSquare.getAttribute('data-id'), store.playerTurn.toLowerCase(), store.gameOver)
     // Toggle turn
-    if (playerTurn === 'X') {
-      ui.userFeedback('O player\'s turn.')
-      playerTurn = 'O'
-    } else if (playerTurn === 'O') {
-      ui.userFeedback('X player\'s turn.')
-      playerTurn = 'X'
+    if (store.playerTurn === 'x') {
+      gameUi.userFeedback('O player\'s turn.')
+      store.playerTurn = 'o'
+    } else if (store.playerTurn === 'o') {
+      gameUi.userFeedback('X player\'s turn.')
+      store.playerTurn = 'x'
     }
   }
 }
 
 const checkWinCondition = () => {
-  const b = boardState
+  const b = store.boardState
   const winConditions = [ [ b[0], b[1], b[2] ], [ b[3], b[4], b[5] ], [ b[6], b[7], b[8] ], [ b[0], b[3], b[6] ], [ b[1], b[4], b[7] ], [ b[2], b[5], b[8] ], [ b[0], b[4], b[8] ], [ b[2], b[4], b[6] ] ]
   for (let i = 0; i < winConditions.length; i++) {
     if (winConditions[i][0] !== '' &&

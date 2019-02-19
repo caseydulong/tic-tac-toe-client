@@ -19,27 +19,51 @@
   <header>
     <h1>Tic-Tac-Toe</h1>
   </header>
-  <section>
-    <p id="form-feedback" class="user-feedback"></p>
+  <section class="auth-forms">
+    <p id="auth-form-feedback" class="user-feedback"></p>
     <form id="sign-up-form">
-      <input name="credentials[email]" placeholder="Email" type="email">
-      <input name="credentials[password]" placeholder="Password" type="password">
-      <input name="credentials[password_confirmation]" placeholder="Password confirmation" type="password">
-      <input type="submit" value="Sign Up">
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <input class="form-control" name="credentials[email]" placeholder="Email"
+          type="email" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="credentials[password]"
+          placeholder="Password" type="password" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="credentials[password_confirmation]"
+          placeholder="Password confirmation" type="password" required>
+      </div>
+      <input class="btn btn-dark" type="submit" value="Sign Up">
     </form>
     <form id="sign-in-form">
-      <input name="credentials[email]" placeholder="Email" type="email">
-      <input name="credentials[password]" placeholder="Password" type="password">
-      <input type="submit" value="Sign In">
+      <h2>Sign In</h2>
+      <div class="form-group">
+        <input class="form-control" name="credentials[email]" placeholder="Email"
+          type="email" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="credentials[password]"
+          placeholder="Password" type="password" required>
+      </div>
+      <input class="btn btn-dark" type="submit" value="Sign In">
     </form>
     <form id="change-password-form">
-      <input name="passwords[old]" placeholder="Old password" type="password">
-      <input name="passwords[new]" placeholder="New password" type="password">
+      <h2>Change Password</h2>
+      <div class="form-group">
+        <input class="form-control" name="passwords[old]" placeholder="Old password"
+          type="password" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="passwords[new]" placeholder="New password"
+          type="password" required>
+      </div>
       <!-- Consider adding client-side new password confirmation -->
-      <input type="submit" value="Sign In">
+      <input class="btn btn-dark" type="submit" value="Change Password">
     </form>
     <form id="sign-out-form">
-      <input type="submit" value="Sign Out">
+      <input class="btn btn-dark" type="submit" value="Sign Out">
     </form>
   </section>
   <main>
@@ -57,6 +81,20 @@
         <div id="grid-8" data-id="8" class="col-4 board-square"></div>
       </div>
     </div>
+    <section>
+      <p id="api-form-feedback" class="user-feedback"></p>
+      <form id="get-games-form">
+        <input type="submit" value="Get Games">
+      </form>
+      <form id="get-game-form">
+        <input type="number" placeholder="Game ID" name="id" min="1"
+          required>
+        <input type="submit" value="Get Game">
+      </form>
+      <form id="create-game-form">
+        <input type="submit" value="New Game">
+      </form>
+    </section>
   </main>
 </body>
 

@@ -13,12 +13,17 @@ h1 {
   color: $dark;
 }
 
+h2 {
+  color: $dark;
+}
+
 header {
   background-color: $orange;
 }
 
 main {
-  margin: 1rem;
+  margin: auto;
+  max-width: 500px;
 }
 
 .board-square {
@@ -31,15 +36,6 @@ main {
   justify-content: center;
   padding: 0;
   user-select: none;
-
-  // &:nth-child(3n) {
-  //   border-right: 0;
-  // }
-  //
-  // &:nth-last-child(-1n + 3) {
-  //   border-bottom: 0;
-  // }
-
 }
 
 .user-feedback {
@@ -48,6 +44,19 @@ main {
   height: 1rem;
   text-align: center;
   user-select: none;
+}
+
+.auth-forms {
+  background-color: $yellow;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  > * {
+    margin: 0.5rem 1rem;
+    padding: 0.5rem;
+  }
 }
 
 #grid-0 {
