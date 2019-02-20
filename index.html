@@ -16,11 +16,31 @@
 </head>
 
 <body>
+  <div id="cover"></div>
   <header>
     <h1>Tic-Tac-Toe</h1>
+    <div id="dropdown-menu" class="dropdown">
+      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Options
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" id="sign-out-button" href="#">Sign Out</a>
+        <a class="dropdown-item" id="change-password-button" href="#">Change
+          Password</a>
+        <a class="dropdown-item" id="show-stats-button" href="#">Show
+          Stats</a>
+        <a class="dropdown-item" id="create-game-button" href="#">New Game</a>
+      </div>
+    </div>
   </header>
-  <section class="auth-forms">
-    <p id="auth-form-feedback" class="user-feedback"></p>
+  <div class="feedback-box">
+    <p id="user-feedback" class="user-feedback"></p>
+  </div>
+  <div class="feedback-box">
+    <p id="player-turn" class="user-feedback"></p>
+  </div>
+  <section id="auth-forms" class="forms">
     <form id="sign-up-form">
       <h2>Sign Up</h2>
       <div class="form-group">
@@ -36,6 +56,7 @@
           placeholder="Password confirmation" type="password" required>
       </div>
       <input class="btn btn-dark" type="submit" value="Sign Up">
+      <p>Already have an account?<br><span class="sign-in-toggle">Sign In</span></p>
     </form>
     <form id="sign-in-form">
       <h2>Sign In</h2>
@@ -48,6 +69,7 @@
           placeholder="Password" type="password" required>
       </div>
       <input class="btn btn-dark" type="submit" value="Sign In">
+      <p>Don't have an account?<br><span class="sign-up-toggle">Sign Up</span></p>
     </form>
     <form id="change-password-form">
       <h2>Change Password</h2>
@@ -60,14 +82,12 @@
           type="password" required>
       </div>
       <!-- Consider adding client-side new password confirmation -->
-      <input class="btn btn-dark" type="submit" value="Change Password">
-    </form>
-    <form id="sign-out-form">
-      <input class="btn btn-dark" type="submit" value="Sign Out">
+      <button id="change-password-submit" class="btn btn-dark">Change
+        Password</button>
+      <button id="change-password-cancel" class="btn btn-dark">Cancel</button>
     </form>
   </section>
   <main>
-    <p id="game-feedback" class="user-feedback"></p>
     <div class="container">
       <div class="row game-board">
         <div id="grid-0" data-id="0" class="col-4 board-square"></div>
@@ -81,21 +101,20 @@
         <div id="grid-8" data-id="8" class="col-4 board-square"></div>
       </div>
     </div>
-    <section>
-      <p id="api-form-feedback" class="user-feedback"></p>
-      <form id="get-games-form">
-        <input type="submit" value="Get Games">
-      </form>
-      <form id="get-game-form">
-        <input type="number" placeholder="Game ID" name="id" min="1"
-          required>
-        <input type="submit" value="Get Game">
-      </form>
-      <form id="create-game-form">
-        <input type="submit" value="New Game">
-      </form>
-    </section>
   </main>
+  <section id="new-game-temp">
+    <button id="new-game-temp-button" class="btn btn-dark">New Game</button>
+  </section>
+  <section id="stats" class="forms">
+    <!-- <form id="get-game-form">
+      <input type="number" placeholder="Game ID" name="id" min="1"
+        required>
+      <input type="submit" value="Get Game">
+    </form> -->
+    <h2>Stats</h2>
+    <h5 id="games-played"></h5>
+    <button id="stats-done" class="btn btn-dark">Done</button>
+  </section>
 </body>
 
 </html>

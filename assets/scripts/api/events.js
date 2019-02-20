@@ -4,7 +4,17 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const onIndex = () => {
+const hideAll = () => {
+  $('#sign-in-form').hide()
+  $('#sign-up-form').hide()
+  $('#change-password-form').hide()
+  $('#auth-forms').hide()
+  $('main').hide()
+  $('#new-game-temp').hide()
+  $('#stats').hide()
+}
+
+const onIndex = event => {
   event.preventDefault()
 
   api.index()
@@ -22,7 +32,7 @@ const onShow = event => {
     .catch(ui.errorMessage)
 }
 
-const onCreate = () => {
+const onCreate = event => {
   event.preventDefault()
 
   api.create()
@@ -38,10 +48,17 @@ const onUpdate = (boardSquare, playerTurn, gameOver) => {
     .catch(ui.errorMessage)
 }
 
+const statsDone = () => {
+  hideAll()
+  $('main').fadeIn(500)
+}
+
 const eventHandlers = () => {
-  $('#get-games-form').on('submit', onIndex)
-  $('#create-game-form').on('submit', onCreate)
+  $('#show-stats-button').on('click', onIndex)
+  $('#create-game-button').on('click', onCreate)
+  $('#new-game-temp-button').on('click', onCreate)
   $('#get-game-form').on('submit', onShow)
+  $('#stats-done').on('click', statsDone)
 }
 
 module.exports = {

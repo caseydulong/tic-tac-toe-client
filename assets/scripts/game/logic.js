@@ -15,9 +15,9 @@ const updateBoard = () => {
 const legalMoveCheck = event => {
   const boardSquare = event.target
   if (store.gameOver === true) {
-    gameUi.userFeedback('The game is over.')
+    gameUi.userFeedback('The game is over')
   } else if ($(`#${boardSquare.id}`).text()) {
-    gameUi.userFeedback('That is not a legal move.')
+    gameUi.userFeedback('That is not a legal move')
   } else {
     // Update local boardState
     store.boardState[boardSquare.getAttribute('data-id')] = store.playerTurn
@@ -31,21 +31,21 @@ const legalMoveCheck = event => {
 const checkGameOver = boardSquare => {
   if (checkWinCondition()) {
     store.gameOver = true
-    gameUi.userFeedback(`Game over: ${store.playerTurn} wins!`)
+    gameUi.playerTurn(`Game over: ${store.playerTurn.toUpperCase()} wins!`)
     apiEvents.onUpdate(boardSquare.getAttribute('data-id'), store.playerTurn.toLowerCase(), store.gameOver)
   } else if (store.boardState.every(index => index !== '')) {
     // If every board position is full, and no win condidtino is met, draw
     store.gameOver = true
-    gameUi.userFeedback('Game over: draw.')
+    gameUi.playerTurn('Game over: draw.')
     apiEvents.onUpdate(boardSquare.getAttribute('data-id'), store.playerTurn.toLowerCase(), store.gameOver)
   } else {
     apiEvents.onUpdate(boardSquare.getAttribute('data-id'), store.playerTurn.toLowerCase(), store.gameOver)
     // Toggle turn
     if (store.playerTurn === 'x') {
-      gameUi.userFeedback('O player\'s turn.')
+      gameUi.playerTurn('O player\'s turn')
       store.playerTurn = 'o'
     } else if (store.playerTurn === 'o') {
-      gameUi.userFeedback('X player\'s turn.')
+      gameUi.playerTurn('X player\'s turn')
       store.playerTurn = 'x'
     }
   }

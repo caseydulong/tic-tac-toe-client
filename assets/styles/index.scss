@@ -1,9 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
-$purple: #6b5b95;
-$yellow: #feb236;
-$red: #d64161;
-$orange: #ff7b25;
-$dark: #212529;
+$purple: #6b5b95; // butterfly bush
+$yellow: #feb236; // supernova
+$red: #d64161; // cerise
+$orange: #ff7b25; // pumpkin
+$dark: #212529; // blue charcoal
 
 body {
   background-color: $purple;
@@ -18,12 +18,19 @@ h2 {
 }
 
 header {
+  align-items: center;
   background-color: $orange;
+  display: flex;
+  justify-content: space-between;
+  > * {
+    margin: .5rem;
+  }
 }
 
 main {
   margin: auto;
   max-width: 500px;
+  padding: 1rem;
 }
 
 .board-square {
@@ -36,76 +43,118 @@ main {
   justify-content: center;
   padding: 0;
   user-select: none;
-}
-
-.user-feedback {
-  color: $dark;
-  display: block;
-  height: 1rem;
-  text-align: center;
-  user-select: none;
-}
-
-.auth-forms {
-  background-color: $yellow;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
-
-  > * {
-    margin: 0.5rem 1rem;
-    padding: 0.5rem;
+  &:hover {
+    background-color: rgba(33, 37, 41, .5);
   }
 }
 
+.forms {
+  background-color: $yellow;
+  border-radius: 30px;
+  margin: 1rem auto;
+  margin-top: 0;
+  max-width: 300px;
+  text-align: center;
+  > * {
+    margin: .5rem 1rem;
+    padding: .5rem;
+  }
+  > form {
+    text-align: center;
+    > p {
+      color: $dark;
+      padding: 1rem;
+      > span {
+        color: white;
+        user-select: none;
+        &:hover {
+          color: $dark;
+        }
+      }
+    }
+  }
+}
+
+.feedback-box {
+  align-items: center;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin: auto;
+  max-width: 500px;
+  .user-feedback {
+    align-items: center;
+    color: $dark;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    margin: 0;
+    max-width: 500px;
+    user-select: none;
+  }
+}
+
+#new-game-temp {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#cover {
+  background-color: $dark;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
 #grid-0 {
-  border-right: 0.5rem solid $dark;
-  border-bottom: 0.5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
 }
 
 #grid-1 {
-  border-right: 0.5rem solid $dark;
-  border-bottom: 0.5rem solid $dark;
-  border-left: 0.5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
 }
 
 #grid-2 {
-  border-bottom: 0.5rem solid $dark;
-  border-left: 0.5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
 }
 
 #grid-3 {
-  border-top: 0.5rem solid $dark;
-  border-right: 0.5rem solid $dark;
-  border-bottom: 0.5rem solid $dark;
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
 }
 
 #grid-4 {
-  border-top: 0.5rem solid $dark;
-  border-right: 0.5rem solid $dark;
-  border-bottom: 0.5rem solid $dark;
-  border-left: 0.5rem solid $dark;
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
 }
 
 #grid-5 {
-  border-top: 0.5rem solid $dark;
-  border-bottom: 0.5rem solid $dark;
-  border-left: 0.5rem solid $dark;
+  border-top: .5rem solid $dark;
+  border-bottom: .5rem solid $dark;
+  border-left: .5rem solid $dark;
 }
 
 #grid-6 {
-  border-top: 0.5rem solid $dark;
-  border-right: 0.5rem solid $dark;
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
 }
 
 #grid-7 {
-  border-top: 0.5rem solid $dark;
-  border-right: 0.5rem solid $dark;
-  border-left: 0.5rem solid $dark;
+  border-top: .5rem solid $dark;
+  border-right: .5rem solid $dark;
+  border-left: .5rem solid $dark;
 }
 
 #grid-8 {
-  border-top: 0.5rem solid $dark;
-  border-left: 0.5rem solid $dark;
+  border-top: .5rem solid $dark;
+  border-left: .5rem solid $dark;
 }

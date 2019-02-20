@@ -5,12 +5,18 @@ const resizeBoardSquare = () => {
   $('.board-square').css('height', width + 'px')
 }
 
-const userFeedback = (text) => {
-  $('#game-feedback').text(text)
-  // setTimeout(() => $('#game-feedback').text(''), 3000)
+const playerTurn = message => {
+  $('#player-turn').text(message)
+}
+
+const userFeedback = message => {
+  $('#user-feedback').text(message)
+  $('#user-feedback').show()
+  setTimeout(() => $('#user-feedback').fadeOut(500), 2500)
 }
 
 module.exports = {
   resizeBoardSquare,
-  userFeedback
+  userFeedback,
+  playerTurn
 }

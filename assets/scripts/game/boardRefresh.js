@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const gameUi = require('./ui.js')
 
 const boardRefresh = () => {
   store.gameOver = store.game.over
@@ -9,6 +10,8 @@ const boardRefresh = () => {
   for (const i in store.boardState) {
     $(`#grid-${i}`).text(store.game.cells[i].toUpperCase())
   }
+  gameUi.playerTurn('X player\'s turn')
+  gameUi.resizeBoardSquare()
 }
 
 const playerCheck = boardState => {
