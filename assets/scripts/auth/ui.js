@@ -1,6 +1,9 @@
 'use strict'
 
 const store = require('../store.js')
+const gameUi = require('../game/ui.js')
+const apiApi = require('../api/api.js')
+const apiUi = require('../api/ui.js')
 
 const hideAll = () => {
   $('#sign-in-form').hide()
@@ -30,12 +33,12 @@ const signUpSuccess = () => {
 }
 
 const signInSuccess = responseData => {
-  $('#user-feedback').text('Create a new game to begin playing')
   store.user = responseData.user
   $('#sign-in-form').trigger('reset')
-  hideAll()
-  $('#new-game-temp').fadeIn(500)
   $('#dropdown-menu').fadeIn(500)
+  apiApi.create()
+    .then(apiUi.createSuccess)
+    .catch(failureMessage)
 }
 
 const changePasswordSuccess = () => {
@@ -43,6 +46,7 @@ const changePasswordSuccess = () => {
   $('#change-password-form').trigger('reset')
   hideAll()
   $('main').fadeIn(500)
+  gameUi.resizeBoardSquare()
 }
 
 const signOutSuccess = () => {

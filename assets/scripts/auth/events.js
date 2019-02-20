@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const gameUi = require('../game/ui.js')
 
 const hideAll = () => {
   $('#sign-in-form').hide()
@@ -62,6 +63,7 @@ const changePasswordHide = () => {
   $('#change-password-form').trigger('reset')
   hideAll()
   $('main').fadeIn(500)
+  gameUi.resizeBoardSquare()
 }
 
 const signUpShow = () => {

@@ -3,6 +3,7 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
+const gameUi = require('../game/ui.js')
 
 const hideAll = () => {
   $('#sign-in-form').hide()
@@ -51,6 +52,7 @@ const onUpdate = (boardSquare, playerTurn, gameOver) => {
 const statsDone = () => {
   hideAll()
   $('main').fadeIn(500)
+  gameUi.resizeBoardSquare()
 }
 
 const eventHandlers = () => {

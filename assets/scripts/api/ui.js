@@ -41,6 +41,7 @@ const createSuccess = responseData => {
   $('main').fadeIn(500)
   store.game = responseData.game
   boardRefresh.boardRefresh()
+  console.log('create success')
 }
 
 const updateSuccess = responseData => {}
