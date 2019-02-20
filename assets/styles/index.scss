@@ -152,3 +152,9 @@ main {
   border-top: .5rem solid $dark;
   border-left: .5rem solid $dark;
 }
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+}
