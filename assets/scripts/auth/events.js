@@ -82,7 +82,7 @@ const eventHandlers = () => {
   $('#sign-out-button').on('click', onSignOut)
   $('.sign-up-toggle').on('click', signUpShow)
   $('.sign-in-toggle').on('click', signInShow)
-  $('#change-password-submit').on('click', onChangePassword)
+  $('#change-password-form').on('submit', onChangePassword)
   $('#change-password-button').on('click', changePasswordShow)
   $('#change-password-cancel').on('click', changePasswordHide)
 }
