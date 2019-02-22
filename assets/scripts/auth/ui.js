@@ -23,6 +23,9 @@ const userFeedback = message => {
 
 const failureMessage = () => {
   userFeedback('Something went wrong')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
 }
 
 const signUpSuccess = () => {
